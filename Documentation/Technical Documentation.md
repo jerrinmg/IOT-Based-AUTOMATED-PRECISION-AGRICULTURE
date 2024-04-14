@@ -11,7 +11,7 @@ The project’s block diagram features a power supply that drives the Raspberry 
 ![Block Diagram](https://github.com/jerrinmg/IOT-Based-AUTOMATED-PRECISION-AGRICULTURE/blob/e48eb2df02e44807e61e7777635c3f2b59479e5c/Documentation/Block%20Diagram.png)
 
 ## Circuit Diagram
-
+In the setup, an IRFZ44N MOSFET is employed for controlling the mini motor pump, ensuring efficient irrigation. The 5V regulator IC serves to provide stable power to the assortment of components, including the soil moisture sensor and DHT11 sensor for environmental data collection. The GPIO control signals from the Raspberry Pi 2B facilitate seamless interaction with these sensors, enabling real-time data acquisition. The incorporation of a Raspberry Pi Camera Module (Rev 1.3) allows for image capture, specifically targeting plant leaves for disease detection. The synchronized connection of these elements, coupled with meticulous ground and power connections, forms the foundation of an integrated system poised for effective and automated precision agriculture.
 
 
 ![Circuit Diagram](https://github.com/jerrinmg/IOT-Based-AUTOMATED-PRECISION-AGRICULTURE/blob/e48eb2df02e44807e61e7777635c3f2b59479e5c/Documentation/Circuit%20Diagram.png)
@@ -52,5 +52,4 @@ The project’s block diagram features a power supply that drives the Raspberry 
 
 ## Conclusion
 
-This document provides a comprehensive overview of the components and their functionalities in the agricultural monitoring and automated irrigation system. Further details and operational guidelines will be provided as necessary.
-
+This document provides a comprehensive overview of the components and their functionalities in the agricultural monitoring and automated irrigation system. 
