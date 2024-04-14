@@ -45,10 +45,16 @@ In the setup, an IRFZ44N MOSFET is employed for controlling the mini motor pump,
 - **DHT11**: Measures temperature and humidity, providing essential data for assessing environmental conditions affecting crop health.
 - **FC28**: A soil moisture sensor that aids in monitoring the water content in the soil, crucial for efficient irrigation practices.
 
-### Cloud Storage
+### Results
 
-- **Platform**: Firebase server.
+- **Training the CNN Model**: The CNN model was constructed using the Keras Sequential API, which allowed foreasy stacking of layers. The architecture comprised several Conv2D layers, eachfollowed by a MaxPooling2D layer. These layers were instrumental in learningrelevant features from the input images and reducing the spatial dimensions of thedata, making the model more efficient.
 - **Purpose**: Stores data from sensors and images for logging and further analysis.
+
+## Circuit Diagram
+In the setup, an IRFZ44N MOSFET is employed for controlling the mini motor pump, ensuring efficient irrigation. The 5V regulator IC serves to provide stable power to the assortment of components, including the soil moisture sensor and DHT11 sensor for environmental data collection. The GPIO control signals from the Raspberry Pi 2B facilitate seamless interaction with these sensors, enabling real-time data acquisition. The incorporation of a Raspberry Pi Camera Module (Rev 1.3) allows for image capture, specifically targeting plant leaves for disease detection. The synchronized connection of these elements, coupled with meticulous ground and power connections, forms the foundation of an integrated system poised for effective and automated precision agriculture.
+
+
+![Circuit Diagram](https://github.com/jerrinmg/IOT-Based-AUTOMATED-PRECISION-AGRICULTURE/blob/e48eb2df02e44807e61e7777635c3f2b59479e5c/Documentation/Circuit%20Diagram.png)
 
 ## Conclusion
 
