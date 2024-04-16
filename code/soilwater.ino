@@ -1,49 +1,41 @@
+int sensorPin = A0;   // Input pin for the potentiometer (soil moisture sensor)
+int relayPin = 13;    // Pin connected to the relay
+int sensorValue = 0;  // Variable to store the value from the sensor
+int moisturePercentage = 0;
 
-
-int sp = A0;   // select the input pin for the potentiometer
-int dp =13; 
-     // select the pin for the LED
-int sv = 0;  // variable to store the value coming from the sensor
-int a=0,p=0;
 void setup() {
-  // declare the ledPin as an OUTPUT:
-  pinMode(dp, OUTPUT);
-  pinMode(12,OUTPUT);
+  pinMode(relayPin, OUTPUT);
+  pinMode(12, OUTPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  // read the value from the sensor:
-  sv = analogRead(sp);
-  float v = sv * (5.00/ 1023.00);
-  //a=(sv*5)/1023;
- //v=5.00-v;
-  Serial.print(v);
-  //p=(v/5)*100;
-  p=map(v,5.00,2.75,0,100);
-  //Serial.print("percentage="+p+" ");
-  Serial.println(p);
- //Serial.write(p);
-   //turn the ledPin on
-  if(p<40.00)
-   {
-       digitalWrite(dp, HIGH);
-       digitalWrite(12,HIGH);
-       delay(5000);
-  // stop the program for <sensorValue> milliseconds:
-      digitalWrite(12,LOW);
-         delay(1000);
-        /* digitalWrite(12,HIGH);
-          delay(1000);
-         digitalWrite(12,LOW);*/
-   }
-  else%
-  {
-  digitalWrite(dp, LOW);
-  digitalWrite(12,LOW);
-  delay(10000);
-  // stop the program for for <sensorValue> milliseconds:
+  // Read the value from the sensor
+  sensorValue = analogRead(sensorPin);
+  float voltage = sensorValue * (5.00 / 1023.00);  // Convert sensor reading to voltage
+
+  Serial.print("Voltage: ");
+  Serial.print(voltage);
+  Serial.print(" V, ");
+
+  // Map voltage to percentage
+  moisturePercentage = map(voltage, 5.00, 2.75, 0, 100);
+  Serial.print("Moisture: ");
+  Serial.print(moisturePercentage);
+  Serial.println("%");
+
+  // Control the relay based on moisture percentage
+  if (moisturePercentage < 40) {
+    digitalWrite(relayPin, HIGH);  // Turn on water pump
+    digitalWrite(12, HIGH);
+    delay(5000);  // Keep on for 5 seconds
+    digitalWrite(12, LOW);
+    delay(1000);  // Off for 1 second
+  } else {
+    digitalWrite(relayPin, LOW);  // Turn off water pump
+    digitalWrite(12, LOW);
+    delay(10000);  // Delay further readings to reduce wear
   }
- delay(20000);
-  
+
+  delay(20000);  // Delay between readings
 }
